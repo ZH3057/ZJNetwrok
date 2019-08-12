@@ -10,4 +10,30 @@
 
 @implementation ZJRequestCache
 
++ (id)fetchMemoryCacheWithQueryPath:(NSString *)queryPath {
+    return nil;
+}
++ (void)saveMemoryCacheWithQueryPath:(NSString *)queryPath {
+    
+}
+
++ (id)fetchDiskCacheWithQueryPath:(NSString *)queryPath {
+    return nil;
+}
++ (void)saveDiskCacheWithQueryPath:(NSString *)queryPath {
+    
+}
+
++ (void)clearMemoryCacheAll {
+    
+}
+
++ (void)clearDiskCacheAll {
+    
+}
+
++ (void)clearCacheAll {
+    
+}
+
 @end

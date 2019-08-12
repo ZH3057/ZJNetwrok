@@ -24,6 +24,24 @@
 
 @implementation ZJRequestTask
 
+static NSMutableArray *recordRequestTaskList;
+
+void ZJStoreRequestTask(ZJRequestTask * requestTask) {
+    if (!requestTask) return;
+    if (!recordRequestTaskList) {
+        recordRequestTaskList = NSMutableArray.array;
+    }
+    [recordRequestTaskList addObject:requestTask];
+}
+
+void ZJRemoveRequestTask(ZJRequestTask * requestTask) {
+    if (!requestTask) return;
+    if (!recordRequestTaskList) {
+        recordRequestTaskList = NSMutableArray.array;
+    }
+    [recordRequestTaskList removeObject:requestTask];
+}
+
 - (NSMutableArray<NSNumber *> *)requestIdList {
     if (!_requestIdList) {
         _requestIdList = NSMutableArray.array;
@@ -52,6 +70,8 @@
 }
 - (NSNumber *)fetchDataWithPath:(NSString * __nonnull)requetPath parameters:(NSDictionary * __nullable)parameters {
     
+    ZJStoreRequestTask(self);
+    
     NSNumber *requestId = @0;
     id responseObject = nil;
     
@@ -71,6 +91,9 @@
         if (self.delegate && [self.delegate respondsToSelector:@selector(requestTask:successWithResponse:responseObject:)]) {
             [self.delegate requestTask:self successWithResponse:nil responseObject:responseObject];
         }
+        
+        ZJRemoveRequestTask(self);
+        
         return requestId;
     }
     
@@ -111,6 +134,8 @@
             [weakSelf.delegate requestTask:weakSelf successWithResponse:response responseObject:responseObject];
         }
         
+        ZJRemoveRequestTask(weakSelf);
+        
     } failHandler:^(NSURLResponse * _Nonnull response, NSError * _Nonnull error) {
         
         weakSelf.responseInfoString = [ZJRequestConfig responseInfoStringForResponse:(NSHTTPURLResponse *)response responseObject:nil request:mutableRequest error:error];
@@ -119,9 +144,15 @@
             [weakSelf.delegate requestTask:weakSelf failWithResponse:response error:error];
         }
         
+        ZJRemoveRequestTask(weakSelf);
+        
     }];
     
     return requestId;
+}
+
+- (void)dealloc {
+    NSLog(@"ZJRequestTask delloc");
 }
 
 @end

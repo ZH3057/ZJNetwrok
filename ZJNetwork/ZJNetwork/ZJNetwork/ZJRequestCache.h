@@ -12,6 +12,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ZJRequestCache : NSObject
 
++ (id)fetchMemoryCacheWithQueryPath:(NSString *)queryPath;
++ (void)saveMemoryCacheWithQueryPath:(NSString *)queryPath;
+
++ (id)fetchDiskCacheWithQueryPath:(NSString *)queryPath;
++ (void)saveDiskCacheWithQueryPath:(NSString *)queryPath;
+
++ (void)clearMemoryCacheAll;
++ (void)clearDiskCacheAll;
++ (void)clearCacheAll;
+
 @end
 
 NS_ASSUME_NONNULL_END
