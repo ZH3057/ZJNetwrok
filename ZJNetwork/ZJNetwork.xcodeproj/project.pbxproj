@@ -10,6 +10,10 @@
 		1FDD80DAB38D672FF448367F /* Pods_ZJNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD7C88484C881A4E3C42E153 /* Pods_ZJNetwork.framework */; };
 		9EFD81424791369A49FB5F54 /* Pods_ZJNetworkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D5A9E0521435CBCF8D01E6B /* Pods_ZJNetworkTests.framework */; };
 		B37D66A50E847C5BD6D2D300 /* Pods_ZJNetworkUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B6B8BEE433CB832CC071490 /* Pods_ZJNetworkUITests.framework */; };
+		BFB7290D230155B6005F4472 /* ZJRequestCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB7290C230155B6005F4472 /* ZJRequestCache.m */; };
+		BFB72914230155DE005F4472 /* ZJRequestConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB7290E230155DD005F4472 /* ZJRequestConfig.m */; };
+		BFB72915230155DE005F4472 /* ZJRequestTask.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB72911230155DD005F4472 /* ZJRequestTask.m */; };
+		BFB72916230155DE005F4472 /* ZJRequestProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB72912230155DE005F4472 /* ZJRequestProxy.m */; };
 		BFBBB1A520DB47FE004F192E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBBB1A420DB47FE004F192E /* AppDelegate.m */; };
 		BFBBB1A820DB47FE004F192E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBBB1A720DB47FE004F192E /* ViewController.m */; };
 		BFBBB1BD20DB4802004F192E /* ZJNetworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBBB1BC20DB4802004F192E /* ZJNetworkTests.m */; };
@@ -45,6 +49,14 @@
 		7D5A9E0521435CBCF8D01E6B /* Pods_ZJNetworkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZJNetworkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95A14366604AE2C371C5624D /* Pods-ZJNetwork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZJNetwork.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZJNetwork/Pods-ZJNetwork.debug.xcconfig"; sourceTree = "<group>"; };
 		BCDCA404E26A16839073A64A /* Pods-ZJNetworkUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZJNetworkUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZJNetworkUITests/Pods-ZJNetworkUITests.release.xcconfig"; sourceTree = "<group>"; };
+		BFB7290B230155B6005F4472 /* ZJRequestCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJRequestCache.h; sourceTree = "<group>"; };
+		BFB7290C230155B6005F4472 /* ZJRequestCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJRequestCache.m; sourceTree = "<group>"; };
+		BFB7290E230155DD005F4472 /* ZJRequestConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJRequestConfig.m; sourceTree = "<group>"; };
+		BFB7290F230155DD005F4472 /* ZJRequestConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJRequestConfig.h; sourceTree = "<group>"; };
+		BFB72910230155DD005F4472 /* ZJRequestProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJRequestProxy.h; sourceTree = "<group>"; };
+		BFB72911230155DD005F4472 /* ZJRequestTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJRequestTask.m; sourceTree = "<group>"; };
+		BFB72912230155DE005F4472 /* ZJRequestProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJRequestProxy.m; sourceTree = "<group>"; };
+		BFB72913230155DE005F4472 /* ZJRequestTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJRequestTask.h; sourceTree = "<group>"; };
 		BFBBB1A020DB47FE004F192E /* ZJNetwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZJNetwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFBBB1A320DB47FE004F192E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BFBBB1A420DB47FE004F192E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -132,6 +144,7 @@
 				BFBBB1D520DB5147004F192E /* AppDelegate */,
 				BFBBB1D620DB515C004F192E /* ViewController */,
 				BFBBB1D920DB5266004F192E /* Supporting */,
+				BFBBB1E620DB53DB004F192E /* ZJNetwork */,
 			);
 			path = ZJNetwork;
 			sourceTree = "<group>";
@@ -182,6 +195,21 @@
 				BFBBB1E020DB5266004F192E /* Info.plist */,
 			);
 			path = Supporting;
+			sourceTree = "<group>";
+		};
+		BFBBB1E620DB53DB004F192E /* ZJNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				BFB7290F230155DD005F4472 /* ZJRequestConfig.h */,
+				BFB7290E230155DD005F4472 /* ZJRequestConfig.m */,
+				BFB7290B230155B6005F4472 /* ZJRequestCache.h */,
+				BFB7290C230155B6005F4472 /* ZJRequestCache.m */,
+				BFB72910230155DD005F4472 /* ZJRequestProxy.h */,
+				BFB72912230155DE005F4472 /* ZJRequestProxy.m */,
+				BFB72913230155DE005F4472 /* ZJRequestTask.h */,
+				BFB72911230155DD005F4472 /* ZJRequestTask.m */,
+			);
+			path = ZJNetwork;
 			sourceTree = "<group>";
 		};
 		F0D061390634B9E759F22502 /* Pods */ = {
@@ -487,9 +515,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFB72914230155DE005F4472 /* ZJRequestConfig.m in Sources */,
 				BFBBB1A820DB47FE004F192E /* ViewController.m in Sources */,
+				BFB7290D230155B6005F4472 /* ZJRequestCache.m in Sources */,
 				BFBBB1E420DB5266004F192E /* main.m in Sources */,
+				BFB72915230155DE005F4472 /* ZJRequestTask.m in Sources */,
 				BFBBB1A520DB47FE004F192E /* AppDelegate.m in Sources */,
+				BFB72916230155DE005F4472 /* ZJRequestProxy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -660,7 +692,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ASH8T6U62E;
+				DEVELOPMENT_TEAM = WUB5ST3C9S;
 				INFOPLIST_FILE = ZJNetwork/Supporting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -678,7 +710,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ASH8T6U62E;
+				DEVELOPMENT_TEAM = WUB5ST3C9S;
 				INFOPLIST_FILE = ZJNetwork/Supporting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
