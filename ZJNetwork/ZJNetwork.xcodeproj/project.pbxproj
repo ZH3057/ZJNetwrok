@@ -16,6 +16,9 @@
 		BFB72916230155DE005F4472 /* ZJRequestProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB72912230155DE005F4472 /* ZJRequestProxy.m */; };
 		BFB7291923029E5C005F4472 /* ZJURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB7291723029E5C005F4472 /* ZJURLProtocol.m */; };
 		BFB7291B23029E78005F4472 /* ZJMockData.json in Resources */ = {isa = PBXBuildFile; fileRef = BFB7291A23029E78005F4472 /* ZJMockData.json */; };
+		BFB7291E2302B091005F4472 /* ZJHostSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB7291D2302B091005F4472 /* ZJHostSwitch.m */; };
+		BFB729212302DF07005F4472 /* ZJHostSwitchNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB729202302DF07005F4472 /* ZJHostSwitchNavigationController.m */; };
+		BFB729242302E6DB005F4472 /* ZJHostSwitchController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB729232302E6DB005F4472 /* ZJHostSwitchController.m */; };
 		BFBBB1A520DB47FE004F192E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBBB1A420DB47FE004F192E /* AppDelegate.m */; };
 		BFBBB1A820DB47FE004F192E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBBB1A720DB47FE004F192E /* ViewController.m */; };
 		BFBBB1BD20DB4802004F192E /* ZJNetworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBBB1BC20DB4802004F192E /* ZJNetworkTests.m */; };
@@ -61,6 +64,12 @@
 		BFB7291723029E5C005F4472 /* ZJURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJURLProtocol.m; sourceTree = "<group>"; };
 		BFB7291823029E5C005F4472 /* ZJURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJURLProtocol.h; sourceTree = "<group>"; };
 		BFB7291A23029E78005F4472 /* ZJMockData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ZJMockData.json; sourceTree = "<group>"; };
+		BFB7291C2302B091005F4472 /* ZJHostSwitch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJHostSwitch.h; sourceTree = "<group>"; };
+		BFB7291D2302B091005F4472 /* ZJHostSwitch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJHostSwitch.m; sourceTree = "<group>"; };
+		BFB7291F2302DF07005F4472 /* ZJHostSwitchNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJHostSwitchNavigationController.h; sourceTree = "<group>"; };
+		BFB729202302DF07005F4472 /* ZJHostSwitchNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJHostSwitchNavigationController.m; sourceTree = "<group>"; };
+		BFB729222302E6DB005F4472 /* ZJHostSwitchController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJHostSwitchController.h; sourceTree = "<group>"; };
+		BFB729232302E6DB005F4472 /* ZJHostSwitchController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJHostSwitchController.m; sourceTree = "<group>"; };
 		BFBBB1A020DB47FE004F192E /* ZJNetwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZJNetwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFBBB1A320DB47FE004F192E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BFBBB1A420DB47FE004F192E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -204,6 +213,12 @@
 		BFBBB1E620DB53DB004F192E /* ZJNetwork */ = {
 			isa = PBXGroup;
 			children = (
+				BFB7291C2302B091005F4472 /* ZJHostSwitch.h */,
+				BFB7291D2302B091005F4472 /* ZJHostSwitch.m */,
+				BFB7291F2302DF07005F4472 /* ZJHostSwitchNavigationController.h */,
+				BFB729202302DF07005F4472 /* ZJHostSwitchNavigationController.m */,
+				BFB729222302E6DB005F4472 /* ZJHostSwitchController.h */,
+				BFB729232302E6DB005F4472 /* ZJHostSwitchController.m */,
 				BFB7291823029E5C005F4472 /* ZJURLProtocol.h */,
 				BFB7291723029E5C005F4472 /* ZJURLProtocol.m */,
 				BFB7291A23029E78005F4472 /* ZJMockData.json */,
@@ -523,12 +538,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFB72914230155DE005F4472 /* ZJRequestConfig.m in Sources */,
+				BFB729212302DF07005F4472 /* ZJHostSwitchNavigationController.m in Sources */,
 				BFBBB1A820DB47FE004F192E /* ViewController.m in Sources */,
+				BFB729242302E6DB005F4472 /* ZJHostSwitchController.m in Sources */,
 				BFB7290D230155B6005F4472 /* ZJRequestCache.m in Sources */,
 				BFB7291923029E5C005F4472 /* ZJURLProtocol.m in Sources */,
 				BFBBB1E420DB5266004F192E /* main.m in Sources */,
 				BFB72915230155DE005F4472 /* ZJRequestTask.m in Sources */,
 				BFBBB1A520DB47FE004F192E /* AppDelegate.m in Sources */,
+				BFB7291E2302B091005F4472 /* ZJHostSwitch.m in Sources */,
 				BFB72916230155DE005F4472 /* ZJRequestProxy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
