@@ -45,6 +45,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy, readonly) NSString *responseInfoString;
 
 - (void)cancelRequestWithRequestId:(NSInteger)requestId;
+
+/**
+ 在控制器销毁的时候调用(dcontroller delloc中)
+ */
 - (void)cancelRequestAll;
 
 - (NSNumber *)fetchDataWithPath:(NSString * __nonnull)requetPath;

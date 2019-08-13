@@ -24,24 +24,6 @@
 
 @implementation ZJRequestTask
 
-static NSMutableArray *recordRequestTaskList;
-
-void ZJStoreRequestTask(ZJRequestTask * requestTask) {
-    if (!requestTask) return;
-    if (!recordRequestTaskList) {
-        recordRequestTaskList = NSMutableArray.array;
-    }
-    [recordRequestTaskList addObject:requestTask];
-}
-
-void ZJRemoveRequestTask(ZJRequestTask * requestTask) {
-    if (!requestTask) return;
-    if (!recordRequestTaskList) {
-        recordRequestTaskList = NSMutableArray.array;
-    }
-    [recordRequestTaskList removeObject:requestTask];
-}
-
 - (NSMutableArray<NSNumber *> *)requestIdList {
     if (!_requestIdList) {
         _requestIdList = NSMutableArray.array;
@@ -70,8 +52,6 @@ void ZJRemoveRequestTask(ZJRequestTask * requestTask) {
 }
 - (NSNumber *)fetchDataWithPath:(NSString * __nonnull)requetPath parameters:(NSDictionary * __nullable)parameters {
     
-    ZJStoreRequestTask(self);
-    
     NSNumber *requestId = @0;
     id responseObject = nil;
     
@@ -91,8 +71,6 @@ void ZJRemoveRequestTask(ZJRequestTask * requestTask) {
         if (self.delegate && [self.delegate respondsToSelector:@selector(requestTask:successWithResponse:responseObject:)]) {
             [self.delegate requestTask:self successWithResponse:nil responseObject:responseObject];
         }
-        
-        ZJRemoveRequestTask(self);
         
         return requestId;
     }
@@ -115,6 +93,12 @@ void ZJRemoveRequestTask(ZJRequestTask * requestTask) {
     
     NSMutableURLRequest *mutableRequest = [self.requestSerializer requestWithMethod:method URLString:URLString parameters:params error:nil];
     
+    if (AFNetworkReachabilityManager.sharedManager.networkReachabilityStatus == AFNetworkReachabilityStatusReachableViaWWAN) {
+        mutableRequest.timeoutInterval = 60;
+    } else {
+        mutableRequest.timeoutInterval = 30;
+    }
+    
     self.requestInfoString = [ZJRequestConfig requestInfoStringForRequest:mutableRequest requestPath:requetPath parameters:parameters];
     
     __weak typeof(self) weakSelf = self;
@@ -134,8 +118,6 @@ void ZJRemoveRequestTask(ZJRequestTask * requestTask) {
             [weakSelf.delegate requestTask:weakSelf successWithResponse:response responseObject:responseObject];
         }
         
-        ZJRemoveRequestTask(weakSelf);
-        
     } failHandler:^(NSURLResponse * _Nonnull response, NSError * _Nonnull error) {
         
         weakSelf.responseInfoString = [ZJRequestConfig responseInfoStringForResponse:(NSHTTPURLResponse *)response responseObject:nil request:mutableRequest error:error];
@@ -143,9 +125,7 @@ void ZJRemoveRequestTask(ZJRequestTask * requestTask) {
         if (weakSelf.delegate && [weakSelf.delegate respondsToSelector:@selector(requestTask:failWithResponse:error:)]) {
             [weakSelf.delegate requestTask:weakSelf failWithResponse:response error:error];
         }
-        
-        ZJRemoveRequestTask(weakSelf);
-        
+                
     }];
     
     return requestId;
