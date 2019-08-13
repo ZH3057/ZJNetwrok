@@ -19,6 +19,8 @@
 
 + (NSString *)requestInfoStringForRequest:(NSURLRequest *)request requestPath:(NSString *)requestPath parameters:(NSDictionary *)parameters {
     
+#if DEBUG
+    
     NSMutableString *infoString = nil;
     infoString = [NSMutableString stringWithString:@"\n\n********************************************************\nRequest Start\n********************************************************\n\n"];
     
@@ -30,9 +32,22 @@
     [infoString appendFormat:@"\n\n********************************************************\nRequest End\n********************************************************\n\n\n\n"];
     
     return infoString.copy;
+    
+#else
+    
+    return nil;
+    
+#endif
+    
 }
 
 + (NSString *)responseInfoStringForResponse:(NSHTTPURLResponse *)response responseObject:(id)responseObject request:(NSURLRequest *)request error:(NSError *)error {
+    
+#if DEBUG
+    
+    if (![response isKindOfClass:NSHTTPURLResponse.class]) {
+        return responseObject;
+    }
     
     NSMutableString *infoString = nil;
     infoString = [NSMutableString stringWithString:@"\n\n=========================================\nResponse Start\n=========================================\n\n"];
@@ -56,6 +71,13 @@
     [infoString appendFormat:@"\n\n=========================================\nResponse End\n=========================================\n\n"];
     
     return infoString.copy;
+    
+#else
+    
+    return nil;
+    
+#endif
+
 }
 
 + (NSMutableString *)infoString:(NSMutableString *)infoString appendURLRequest:(NSURLRequest *)request {

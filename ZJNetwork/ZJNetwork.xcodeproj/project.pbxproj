@@ -14,6 +14,8 @@
 		BFB72914230155DE005F4472 /* ZJRequestConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB7290E230155DD005F4472 /* ZJRequestConfig.m */; };
 		BFB72915230155DE005F4472 /* ZJRequestTask.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB72911230155DD005F4472 /* ZJRequestTask.m */; };
 		BFB72916230155DE005F4472 /* ZJRequestProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB72912230155DE005F4472 /* ZJRequestProxy.m */; };
+		BFB7291923029E5C005F4472 /* ZJURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB7291723029E5C005F4472 /* ZJURLProtocol.m */; };
+		BFB7291B23029E78005F4472 /* ZJMockData.json in Resources */ = {isa = PBXBuildFile; fileRef = BFB7291A23029E78005F4472 /* ZJMockData.json */; };
 		BFBBB1A520DB47FE004F192E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBBB1A420DB47FE004F192E /* AppDelegate.m */; };
 		BFBBB1A820DB47FE004F192E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBBB1A720DB47FE004F192E /* ViewController.m */; };
 		BFBBB1BD20DB4802004F192E /* ZJNetworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBBB1BC20DB4802004F192E /* ZJNetworkTests.m */; };
@@ -22,7 +24,6 @@
 		BFBBB1E220DB5266004F192E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFBBB1DB20DB5266004F192E /* LaunchScreen.storyboard */; };
 		BFBBB1E320DB5266004F192E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFBBB1DD20DB5266004F192E /* Main.storyboard */; };
 		BFBBB1E420DB5266004F192E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBBB1DF20DB5266004F192E /* main.m */; };
-		BFBBB1E520DB5266004F192E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BFBBB1E020DB5266004F192E /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,9 @@
 		BFB72911230155DD005F4472 /* ZJRequestTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJRequestTask.m; sourceTree = "<group>"; };
 		BFB72912230155DE005F4472 /* ZJRequestProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJRequestProxy.m; sourceTree = "<group>"; };
 		BFB72913230155DE005F4472 /* ZJRequestTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJRequestTask.h; sourceTree = "<group>"; };
+		BFB7291723029E5C005F4472 /* ZJURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJURLProtocol.m; sourceTree = "<group>"; };
+		BFB7291823029E5C005F4472 /* ZJURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJURLProtocol.h; sourceTree = "<group>"; };
+		BFB7291A23029E78005F4472 /* ZJMockData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ZJMockData.json; sourceTree = "<group>"; };
 		BFBBB1A020DB47FE004F192E /* ZJNetwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZJNetwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFBBB1A320DB47FE004F192E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BFBBB1A420DB47FE004F192E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -200,6 +204,9 @@
 		BFBBB1E620DB53DB004F192E /* ZJNetwork */ = {
 			isa = PBXGroup;
 			children = (
+				BFB7291823029E5C005F4472 /* ZJURLProtocol.h */,
+				BFB7291723029E5C005F4472 /* ZJURLProtocol.m */,
+				BFB7291A23029E78005F4472 /* ZJMockData.json */,
 				BFB7290F230155DD005F4472 /* ZJRequestConfig.h */,
 				BFB7290E230155DD005F4472 /* ZJRequestConfig.m */,
 				BFB7290B230155B6005F4472 /* ZJRequestCache.h */,
@@ -296,7 +303,7 @@
 		BFBBB19820DB47FE004F192E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1030;
 				ORGANIZATIONNAME = "Jun Zhou";
 				TargetAttributes = {
 					BFBBB19F20DB47FE004F192E = {
@@ -337,9 +344,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFBBB1E520DB5266004F192E /* Info.plist in Resources */,
 				BFBBB1E320DB5266004F192E /* Main.storyboard in Resources */,
 				BFBBB1E120DB5266004F192E /* Assets.xcassets in Resources */,
+				BFB7291B23029E78005F4472 /* ZJMockData.json in Resources */,
 				BFBBB1E220DB5266004F192E /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -518,6 +525,7 @@
 				BFB72914230155DE005F4472 /* ZJRequestConfig.m in Sources */,
 				BFBBB1A820DB47FE004F192E /* ViewController.m in Sources */,
 				BFB7290D230155B6005F4472 /* ZJRequestCache.m in Sources */,
+				BFB7291923029E5C005F4472 /* ZJURLProtocol.m in Sources */,
 				BFBBB1E420DB5266004F192E /* main.m in Sources */,
 				BFB72915230155DE005F4472 /* ZJRequestTask.m in Sources */,
 				BFBBB1A520DB47FE004F192E /* AppDelegate.m in Sources */,
