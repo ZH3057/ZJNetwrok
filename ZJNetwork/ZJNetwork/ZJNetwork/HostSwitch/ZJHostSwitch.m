@@ -183,6 +183,16 @@ static ZJHostSwitch * _instance = nil;
 
 - (void)handleTapGesture:(UITapGestureRecognizer *)tap {
     
+    CAKeyframeAnimation *bounceAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
+    bounceAnimation.values = [NSArray arrayWithObjects:
+                              [NSNumber numberWithFloat:0.9],
+                              [NSNumber numberWithFloat:1.1],
+                              [NSNumber numberWithFloat:0.9],
+                              [NSNumber numberWithFloat:1.0], nil];
+    bounceAnimation.duration = .25;
+    bounceAnimation.removedOnCompletion = YES;
+    [self.hostWindow.layer addAnimation:bounceAnimation forKey:nil];
+    
     self.isShowHostController = !self.isShowHostController;
     
     if (self.isShowHostController) {
