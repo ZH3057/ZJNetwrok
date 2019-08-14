@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ZJRequestConstant.h"
 
 typedef NS_ENUM(NSUInteger, ZJRequestMethod) {
     ZJRequestMethod_GET,

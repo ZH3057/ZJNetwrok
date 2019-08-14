@@ -33,20 +33,20 @@ static CGFloat const kVerticalMargin = 15;
 + (void)load {
     __block id observer = [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidFinishLaunchingNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
         [self shareInstance].hostWindow.hidden = NO;
-        NSString *title = [NSUserDefaults.standardUserDefaults objectForKey:@"kHostUrlSaveKey"];
-        if (!title.length)  {
-            title = @"开发";
-            [NSUserDefaults.standardUserDefaults setObject:title forKey:@"kHostUrlSaveKey"];
-            [NSUserDefaults.standardUserDefaults synchronize];
-        }
-        
-        [self shareInstance].hostController = (ZJHostSwitchController *)[self shareInstance].controller.topViewController;
-        [self shareInstance].host = [self shareInstance].hostController.host;
-        NSLog(@"%@", [self shareInstance].host);
-        [self shareInstance].titleLabel.text = title;
-        
         [[NSNotificationCenter defaultCenter] removeObserver:observer];
     }];
+    
+    NSString *title = [NSUserDefaults.standardUserDefaults objectForKey:@"kHostUrlSaveKey"];
+    if (!title.length)  {
+        title = @"开发";
+        [NSUserDefaults.standardUserDefaults setObject:title forKey:@"kHostUrlSaveKey"];
+        [NSUserDefaults.standardUserDefaults synchronize];
+    }
+    
+    [self shareInstance].hostController = (ZJHostSwitchController *)[self shareInstance].controller.topViewController;
+    [self shareInstance].host = [self shareInstance].hostController.host;
+    NSLog(@"%@", [self shareInstance].host);
+    [self shareInstance].titleLabel.text = title;
 }
 
 #endif
@@ -199,6 +199,10 @@ static ZJHostSwitch * _instance = nil;
     self.isShowHostController = NO;
     self.host = self.hostController.host;
     self.titleLabel.text = self.hostController.environment;
+}
+
++ (NSString *)currentHost {
+    return [self shareInstance].host;
 }
 
 

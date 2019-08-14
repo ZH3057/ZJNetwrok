@@ -7,10 +7,24 @@
 //
 
 #import "ZJRequestConfig.h"
+#import "ZJHostSwitch.h"
+
+static NSString * const kServerHost = @"www.you.host.com";
 
 @implementation ZJRequestConfig
 
 + (NSString *)reforomRequestPath:(NSString *)requestPath {
+    
+#if DEBUG
+    
+    return [NSString stringWithFormat:@"%@%@", ZJHostSwitch.currentHost, requestPath];
+    
+#else
+    
+    return [NSString stringWithFormat:@"%@%@", kServerHost, requestPath];
+    
+#endif
+    
     return requestPath;
 }
 + (NSDictionary *)reformParameters:(NSDictionary *)paramenters {

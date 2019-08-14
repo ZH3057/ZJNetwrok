@@ -27,7 +27,7 @@
     ZJRequestTask *requestTask = [ZJRequestTask new];
     requestTask.delegate = self;
     //requestTask.method = ZJRequestMethod_POST;
-    [requestTask fetchDataWithPath:@"https://www.baidu.com/demo/test/path" parameters:@{@"test1234" : @(1234)}];
+    [requestTask fetchDataWithPath:kRequestTestPath parameters:@{@"test1234" : @(1234)}];
     self.requestTask = requestTask;
 }
 

@@ -52,10 +52,10 @@ static NSString * const cellReuseIdentifier = @"UITableViewCell";
 - (NSDictionary<NSString *, NSString *> *)hostDictionary {
     if (!_hostDictionary) {
         _hostDictionary = @{
-                            @"线上" : @"123",
-                            @"预览" : @"123",
-                            @"测试" : @"123",
-                            @"开发" : @"123",
+                            @"线上" : @"https://www.product.com",
+                            @"预览" : @"https://www.preview.com",
+                            @"测试" : @"https://www.test.com",
+                            @"开发" : @"https://www.develop.com",
                             };
     }
     return _hostDictionary;
@@ -104,7 +104,7 @@ static NSString * const cellReuseIdentifier = @"UITableViewCell";
 - (void)configUI {
     self.view.backgroundColor = UIColor.whiteColor;
     self.navigationItem.title = self.environment;
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismiss)];
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"退出" style:(UIBarButtonItemStylePlain) target:self action:@selector(dismiss) ];
     
     self.navigationItem.rightBarButtonItem = rightItem;
 }

@@ -10,6 +10,7 @@
 		1FDD80DAB38D672FF448367F /* Pods_ZJNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD7C88484C881A4E3C42E153 /* Pods_ZJNetwork.framework */; };
 		9EFD81424791369A49FB5F54 /* Pods_ZJNetworkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D5A9E0521435CBCF8D01E6B /* Pods_ZJNetworkTests.framework */; };
 		B37D66A50E847C5BD6D2D300 /* Pods_ZJNetworkUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B6B8BEE433CB832CC071490 /* Pods_ZJNetworkUITests.framework */; };
+		BF3A17022303A2960003F7A5 /* ZJRequestConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3A17012303A2960003F7A5 /* ZJRequestConstant.m */; };
 		BFB7290D230155B6005F4472 /* ZJRequestCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB7290C230155B6005F4472 /* ZJRequestCache.m */; };
 		BFB72914230155DE005F4472 /* ZJRequestConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB7290E230155DD005F4472 /* ZJRequestConfig.m */; };
 		BFB72915230155DE005F4472 /* ZJRequestTask.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB72911230155DD005F4472 /* ZJRequestTask.m */; };
@@ -53,6 +54,8 @@
 		7D5A9E0521435CBCF8D01E6B /* Pods_ZJNetworkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZJNetworkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95A14366604AE2C371C5624D /* Pods-ZJNetwork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZJNetwork.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZJNetwork/Pods-ZJNetwork.debug.xcconfig"; sourceTree = "<group>"; };
 		BCDCA404E26A16839073A64A /* Pods-ZJNetworkUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZJNetworkUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZJNetworkUITests/Pods-ZJNetworkUITests.release.xcconfig"; sourceTree = "<group>"; };
+		BF3A17002303A2960003F7A5 /* ZJRequestConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJRequestConstant.h; sourceTree = "<group>"; };
+		BF3A17012303A2960003F7A5 /* ZJRequestConstant.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJRequestConstant.m; sourceTree = "<group>"; };
 		BFB7290B230155B6005F4472 /* ZJRequestCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJRequestCache.h; sourceTree = "<group>"; };
 		BFB7290C230155B6005F4472 /* ZJRequestCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJRequestCache.m; sourceTree = "<group>"; };
 		BFB7290E230155DD005F4472 /* ZJRequestConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJRequestConfig.m; sourceTree = "<group>"; };
@@ -127,6 +130,47 @@
 				0B6B8BEE433CB832CC071490 /* Pods_ZJNetworkUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BF3A16FC2303A2110003F7A5 /* HostSwitch */ = {
+			isa = PBXGroup;
+			children = (
+				BFB7291C2302B091005F4472 /* ZJHostSwitch.h */,
+				BFB7291D2302B091005F4472 /* ZJHostSwitch.m */,
+				BFB7291F2302DF07005F4472 /* ZJHostSwitchNavigationController.h */,
+				BFB729202302DF07005F4472 /* ZJHostSwitchNavigationController.m */,
+				BFB729222302E6DB005F4472 /* ZJHostSwitchController.h */,
+				BFB729232302E6DB005F4472 /* ZJHostSwitchController.m */,
+			);
+			path = HostSwitch;
+			sourceTree = "<group>";
+		};
+		BF3A16FD2303A22A0003F7A5 /* RequestMock */ = {
+			isa = PBXGroup;
+			children = (
+				BFB7291823029E5C005F4472 /* ZJURLProtocol.h */,
+				BFB7291723029E5C005F4472 /* ZJURLProtocol.m */,
+				BFB7291A23029E78005F4472 /* ZJMockData.json */,
+			);
+			path = RequestMock;
+			sourceTree = "<group>";
+		};
+		BF3A16FE2303A2460003F7A5 /* ZJRequestConfig */ = {
+			isa = PBXGroup;
+			children = (
+				BFB7290F230155DD005F4472 /* ZJRequestConfig.h */,
+				BFB7290E230155DD005F4472 /* ZJRequestConfig.m */,
+			);
+			path = ZJRequestConfig;
+			sourceTree = "<group>";
+		};
+		BF3A16FF2303A2560003F7A5 /* ZJRequestCache */ = {
+			isa = PBXGroup;
+			children = (
+				BFB7290B230155B6005F4472 /* ZJRequestCache.h */,
+				BFB7290C230155B6005F4472 /* ZJRequestCache.m */,
+			);
+			path = ZJRequestCache;
 			sourceTree = "<group>";
 		};
 		BFBBB19720DB47FE004F192E = {
@@ -213,21 +257,14 @@
 		BFBBB1E620DB53DB004F192E /* ZJNetwork */ = {
 			isa = PBXGroup;
 			children = (
-				BFB7291C2302B091005F4472 /* ZJHostSwitch.h */,
-				BFB7291D2302B091005F4472 /* ZJHostSwitch.m */,
-				BFB7291F2302DF07005F4472 /* ZJHostSwitchNavigationController.h */,
-				BFB729202302DF07005F4472 /* ZJHostSwitchNavigationController.m */,
-				BFB729222302E6DB005F4472 /* ZJHostSwitchController.h */,
-				BFB729232302E6DB005F4472 /* ZJHostSwitchController.m */,
-				BFB7291823029E5C005F4472 /* ZJURLProtocol.h */,
-				BFB7291723029E5C005F4472 /* ZJURLProtocol.m */,
-				BFB7291A23029E78005F4472 /* ZJMockData.json */,
-				BFB7290F230155DD005F4472 /* ZJRequestConfig.h */,
-				BFB7290E230155DD005F4472 /* ZJRequestConfig.m */,
-				BFB7290B230155B6005F4472 /* ZJRequestCache.h */,
-				BFB7290C230155B6005F4472 /* ZJRequestCache.m */,
+				BF3A16FC2303A2110003F7A5 /* HostSwitch */,
+				BF3A16FD2303A22A0003F7A5 /* RequestMock */,
+				BF3A16FE2303A2460003F7A5 /* ZJRequestConfig */,
+				BF3A16FF2303A2560003F7A5 /* ZJRequestCache */,
 				BFB72910230155DD005F4472 /* ZJRequestProxy.h */,
 				BFB72912230155DE005F4472 /* ZJRequestProxy.m */,
+				BF3A17002303A2960003F7A5 /* ZJRequestConstant.h */,
+				BF3A17012303A2960003F7A5 /* ZJRequestConstant.m */,
 				BFB72913230155DE005F4472 /* ZJRequestTask.h */,
 				BFB72911230155DD005F4472 /* ZJRequestTask.m */,
 			);
@@ -546,6 +583,7 @@
 				BFBBB1E420DB5266004F192E /* main.m in Sources */,
 				BFB72915230155DE005F4472 /* ZJRequestTask.m in Sources */,
 				BFBBB1A520DB47FE004F192E /* AppDelegate.m in Sources */,
+				BF3A17022303A2960003F7A5 /* ZJRequestConstant.m in Sources */,
 				BFB7291E2302B091005F4472 /* ZJHostSwitch.m in Sources */,
 				BFB72916230155DE005F4472 /* ZJRequestProxy.m in Sources */,
 			);
