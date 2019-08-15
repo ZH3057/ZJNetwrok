@@ -7,7 +7,6 @@
 //
 
 #import "ZJHostSwitch.h"
-#import "ZJHostSwitchNavigationController.h"
 #import "ZJHostSwitchController.h"
 
 static CGFloat const kLeanProportion = 8/55.0;
@@ -17,7 +16,7 @@ static CGFloat const kVerticalMargin = 15;
 @interface ZJHostSwitch ()
 
 @property (nonatomic, strong) UIWindow *hostWindow;
-@property (nonatomic, strong) ZJHostSwitchNavigationController *controller;
+@property (nonatomic, strong) UINavigationController *navigationController;
 @property (nonatomic, strong) ZJHostSwitchController *hostController;
 @property (nonatomic, assign) BOOL isShowHostController;
 @property (nonatomic, copy) NSString *host;
@@ -36,17 +35,9 @@ static CGFloat const kVerticalMargin = 15;
         [[NSNotificationCenter defaultCenter] removeObserver:observer];
     }];
     
-    NSString *title = [NSUserDefaults.standardUserDefaults objectForKey:@"kHostUrlSaveKey"];
-    if (!title.length)  {
-        title = @"开发";
-        [NSUserDefaults.standardUserDefaults setObject:title forKey:@"kHostUrlSaveKey"];
-        [NSUserDefaults.standardUserDefaults synchronize];
-    }
-    
-    [self shareInstance].hostController = (ZJHostSwitchController *)[self shareInstance].controller.topViewController;
     [self shareInstance].host = [self shareInstance].hostController.host;
     NSLog(@"%@", [self shareInstance].host);
-    [self shareInstance].titleLabel.text = title;
+    [self shareInstance].titleLabel.text = [self shareInstance].hostController.environment;
 }
 
 #endif
@@ -104,11 +95,18 @@ static ZJHostSwitch * _instance = nil;
     return _hostWindow;
 }
 
-- (ZJHostSwitchNavigationController *)controller {
-    if (!_controller) {
-        _controller = ZJHostSwitchNavigationController.controller;
+- (UINavigationController *)navigationController {
+    if (!_navigationController) {
+        _navigationController = [[UINavigationController alloc] initWithRootViewController:self.hostController];
     }
-    return _controller;
+    return _navigationController;
+}
+
+- (ZJHostSwitchController *)hostController {
+    if (!_hostController) {
+        _hostController = ZJHostSwitchController.new;
+    }
+    return _hostController;
 }
 
 - (UILabel *)titleLabel {
@@ -197,9 +195,9 @@ static ZJHostSwitch * _instance = nil;
     
     if (self.isShowHostController) {
         UIWindow *appWindow = [UIApplication sharedApplication].delegate.window;
-        [appWindow.rootViewController presentViewController:self.controller animated:YES completion:nil];
+        [appWindow.rootViewController presentViewController:self.navigationController animated:YES completion:nil];
     } else {
-        [self.controller dismissViewControllerAnimated:YES completion:nil];
+        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
     }
     
     
