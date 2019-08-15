@@ -256,14 +256,22 @@
 				BF3A16FD2303A22A0003F7A5 /* RequestMock */,
 				BF3A16FE2303A2460003F7A5 /* ZJRequestConfig */,
 				BF3A16FF2303A2560003F7A5 /* ZJRequestCache */,
-				BFB72910230155DD005F4472 /* ZJRequestProxy.h */,
-				BFB72912230155DE005F4472 /* ZJRequestProxy.m */,
+				BFE097B923053F68009C39BF /* ZJRequestProxy */,
 				BF3A17002303A2960003F7A5 /* ZJRequestConstant.h */,
 				BF3A17012303A2960003F7A5 /* ZJRequestConstant.m */,
 				BFB72913230155DE005F4472 /* ZJRequestTask.h */,
 				BFB72911230155DD005F4472 /* ZJRequestTask.m */,
 			);
 			path = ZJNetwork;
+			sourceTree = "<group>";
+		};
+		BFE097B923053F68009C39BF /* ZJRequestProxy */ = {
+			isa = PBXGroup;
+			children = (
+				BFB72910230155DD005F4472 /* ZJRequestProxy.h */,
+				BFB72912230155DE005F4472 /* ZJRequestProxy.m */,
+			);
+			path = ZJRequestProxy;
 			sourceTree = "<group>";
 		};
 		F0D061390634B9E759F22502 /* Pods */ = {
